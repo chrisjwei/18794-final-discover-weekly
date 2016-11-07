@@ -171,13 +171,13 @@ function [ CC, FBE, frames ] = mfcc( speech, fs, Tw, Ts, alpha, window, R, M, N,
     % Cepstral liftering gives liftered cepstral coefficients
     CC = diag( lifter ) * CC; % ~ HTK's MFCCs
 
-figure('Position', [30 100 800 200], 'PaperPositionMode', 'auto', ... 
-                 'color', 'w', 'PaperOrientation', 'landscape', 'Visible', 'on' ); 
-      
-          imagesc( [1:size(CC,2)], [0:N-1], CC ); 
-          axis( 'xy' );
-          xlabel( 'Frame index' ); 
-          ylabel( 'Cepstrum index' );
-          title( 'Mel frequency cepstrum' );
+% figure('Position', [30 100 800 200], 'PaperPositionMode', 'auto', ... 
+%                 'color', 'w', 'PaperOrientation', 'landscape', 'Visible', 'on' ); 
+%      
+%          imagesc( [1:size(CC,2)], [0:N-1], CC ); 
+%          axis( 'xy' );
+%          xlabel( 'Frame index' ); 
+%          ylabel( 'Cepstrum index' );
+%          title( 'Mel frequency cepstrum' );
 
 % EOF
