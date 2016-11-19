@@ -19,4 +19,7 @@ function CC = mp32mfcc(filename)
     N = 22;
 
     [CC,~,~] =mfcc(speech,fs,Tw,Ts,alpha,window,R,M,N,L);
+    if size(CC,2) ~= 999
+        CC = NaN;
+    end
 end
