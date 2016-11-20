@@ -6,10 +6,10 @@ function CC = mp32mfcc(filename)
     %fm ~= 1400kHz; fs = 44.1kHz -> fs << 2*fm
 
     [length ~] = size(speech);
-    desiredSamp = 30/(1/fs);
+    desiredSamp = 10/(1/fs);
     speech = speech(round(length/2 - round(desiredSamp/2)) : round(length/2 + (desiredSamp/2)));%grab audio from mmiddle 30 secs
-    length = 30000; %length of sample in ms
-    Tw = length/500;
+    length = 10000; %length of sample in ms
+    Tw = length/100;
     Ts = Tw*.5;
     alpha = .95;
     M = 22;
@@ -19,7 +19,8 @@ function CC = mp32mfcc(filename)
     N = 22;
 
     [CC,~,~] =mfcc(speech,fs,Tw,Ts,alpha,window,R,M,N,L);
-    if size(CC,2) ~= 999
-        CC = NaN;
+    if size(CC,2) ~= 199
+       CC = NaN;
     end
+   
 end
